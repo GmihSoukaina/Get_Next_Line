@@ -6,7 +6,7 @@
 /*   By: sgmih <sgmih@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/26 16:55:52 by sgmih             #+#    #+#             */
-/*   Updated: 2024/11/29 13:08:47 by sgmih            ###   ########.fr       */
+/*   Updated: 2024/11/29 13:23:00 by sgmih            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,8 +49,6 @@ char	*ft_strjoin(char *s1, char *s2)
 	char	*joined;
 	char	*ptr;
 
-    if (!s1 || !s2) // Validate inputs
-        return (NULL);
 	len1 = ft_strlen(s1);
 	len2 = ft_strlen(s2);
 	joined = malloc(len1 + len2 + 1);
@@ -71,8 +69,6 @@ char	*ft_strdup(const char *s1)
 	int		len;
 	int		i;
 
-	if (!s1)
-        return (NULL);
 	len = ft_strlen(s1);
 	dest = (char *) malloc((len + 1) * sizeof(char));
 	if (dest == 0)

@@ -6,7 +6,7 @@
 /*   By: sgmih <sgmih@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/27 08:51:33 by sgmih             #+#    #+#             */
-/*   Updated: 2024/11/29 12:04:41 by sgmih            ###   ########.fr       */
+/*   Updated: 2024/11/29 13:17:36 by sgmih            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 #include <stdlib.h>
 
 # ifndef BUFFER_SIZE
-#  define BUFFER_SIZE 1
+#  define BUFFER_SIZE 42
 # endif
 
 char	*get_next_line(int fd);
@@ -31,8 +31,5 @@ char	*ft_strchr(const char *s, int c);
 char	*ft_strncpy(char *dst, const char *src, size_t len);
 
 #endif
-
-// # include <stdlib.h>
-// # include <unistd.h>
 
 
