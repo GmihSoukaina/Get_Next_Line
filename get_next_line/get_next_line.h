@@ -6,7 +6,7 @@
 /*   By: sgmih <sgmih@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/27 08:51:33 by sgmih             #+#    #+#             */
-/*   Updated: 2024/11/27 16:09:12 by sgmih            ###   ########.fr       */
+/*   Updated: 2024/11/29 12:04:41 by sgmih            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,7 @@
 #include <stdlib.h>
 
 # ifndef BUFFER_SIZE
-#  define BUFFER_SIZE 42
-
+#  define BUFFER_SIZE 1
 # endif
 
 char	*get_next_line(int fd);

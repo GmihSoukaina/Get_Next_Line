@@ -6,7 +6,7 @@
 /*   By: sgmih <sgmih@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/26 16:55:48 by sgmih             #+#    #+#             */
-/*   Updated: 2024/11/27 20:15:19 by sgmih            ###   ########.fr       */
+/*   Updated: 2024/11/29 13:03:53 by sgmih            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 static char *find_newline(int fd, char *str)
 {
     char    *buffer;
-    char    *newline;
     int     chars_read;
 
     chars_read = 1;
@@ -24,8 +23,7 @@ static char *find_newline(int fd, char *str)
 		str = ft_strdup("");
     if (!buffer)
         return (NULL);
-    newline = ft_strchr(str, '\n');
-    while (chars_read && newline == NULL)
+    while (chars_read != 0 && (ft_strchr(str, '\n') == NULL))
     {
         chars_read = read(fd, buffer, BUFFER_SIZE);
         if (chars_read < 0)
@@ -90,12 +88,17 @@ char *get_next_line(int fd)
     static char *str;
     char        *line;
 
-    if (fd < 0 | BUFFER_SIZE <= 0)
+    if (fd < 0 || BUFFER_SIZE <= 0)
         return (NULL);
     str = find_newline(fd, str);
-    if (str == NULL)
+    if (!str)
         return (NULL);
     line = substr_newline(str);
     str = update_str(str);
+    if (!line)
+    {
+        free(str);
+        str = NULL;
+    }
     return (line);
 }

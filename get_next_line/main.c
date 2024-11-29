@@ -1,7 +1,11 @@
 #include "get_next_line.h"
-
+// void ff()
+// {
+//     system("leaks a.out");
+// }
 int main(void)
 {
+    //atexit(ff);
     int fd;
     char *line;
     fd = open("example.txt", O_RDONLY);
@@ -12,7 +16,7 @@ int main(void)
     }
     while ((line = get_next_line(fd)) != NULL)
     {
-        printf("Line: %s \n", line);
+        printf("Line: %s\n", line);
         free(line);
     }
     close(fd);

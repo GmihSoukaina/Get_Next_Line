@@ -1,5 +1,0 @@
-Si tout ce passe bien, la fonction vous renvoie un pointeur sur la zone nouvellement allouée.
-Attention, ce pointeur est de type pointeur générique (void *) : 
-si nécessaire, il est donc de votre responsabilité de "caster" votre 
-pointeur vers un autre type (du moins si vous souhaitez ne pas avoir de warning 
-affiché par le compilateur, ce que je vous recommande vivement).
