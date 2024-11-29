@@ -6,29 +6,11 @@
 /*   By: sgmih <sgmih@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/26 16:55:52 by sgmih             #+#    #+#             */
-/*   Updated: 2024/11/29 13:23:00 by sgmih            ###   ########.fr       */
+/*   Updated: 2024/11/29 14:07:18 by sgmih            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
-
-char	*ft_strncpy(char *dst, const char *src, size_t len)
-{
-	size_t	i;
-
-	i = 0;
-	while (i < len && src[i])
-	{
-		dst[i] = src[i];
-		i++;
-	}
-	while (i < len)
-	{
-		dst[i] = '\0';
-		i++;
-	}
-	return (dst);
-}
 
 size_t	ft_strlen(const char *s)
 {
@@ -42,25 +24,32 @@ size_t	ft_strlen(const char *s)
 	return (i);
 }
 
-char	*ft_strjoin(char *s1, char *s2)
+char	*ft_strjoin(char const *s1, char const *s2)
 {
-	size_t	len1;
-	size_t	len2;
-	char	*joined;
-	char	*ptr;
+	int		sizetotal;
+	char	*res;
+	int		i;
+	int		j;
 
-	len1 = ft_strlen(s1);
-	len2 = ft_strlen(s2);
-	joined = malloc(len1 + len2 + 1);
-	if (!joined)
+	i = 0;
+	sizetotal = ft_strlen(s1) + ft_strlen(s2);
+	res = malloc(sizeof(char) * (sizetotal + 1));
+	if (!res || !s1 || !s2)
 		return (NULL);
-	ptr = joined;
-	while (s1 && *s1)
-		*ptr++ = *s1++;
-	while (s2 && *s2)
-		*ptr++ = *s2++;
-	*ptr = '\0';
-	return (joined);
+	while (s1[i] != 0)
+	{
+		res[i] = s1[i];
+		i++;
+	}
+	j = 0;
+	while (s2[j] != 0)
+	{
+		res[i] = s2[j];
+		i++;
+		j++;
+	}
+	res[sizetotal] = 0;
+	return (res);
 }
 
 char	*ft_strdup(const char *s1)
@@ -71,8 +60,8 @@ char	*ft_strdup(const char *s1)
 
 	len = ft_strlen(s1);
 	dest = (char *) malloc((len + 1) * sizeof(char));
-	if (dest == 0)
-		return (0);
+	if (!dest)
+		return (NULL);
 	i = 0;
 	while (s1[i] != '\0')
 	{
@@ -85,22 +74,28 @@ char	*ft_strdup(const char *s1)
 
 char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
-	char	*result;
-	size_t	str_len;
+	char	*ptr;
+	size_t	i;
 
-	if (s == NULL)
+	if (!s)
 		return (NULL);
-	str_len = ft_strlen(s);
-	if (start >= str_len)
-		len = 0;
-	else if (len > str_len - start)
-		len = str_len - start;
-	result = (char *)malloc(len + 1);
-	if (result == NULL)
+	if (start >= ft_strlen(s))
+		return (ft_strdup(""));
+	if ((ft_strlen(s) - start) < len)
+		ptr = malloc(sizeof(char) * (ft_strlen(s) - start + 1));
+	else
+		ptr = malloc(sizeof(char) * (len + 1));
+	if (!ptr)
 		return (NULL);
-	ft_strncpy(result, s + start, len);
-	result[len] = '\0';
-	return (result);
+	i = 0;
+	while (*(s + start + i) && (len > 0))
+	{
+		*(ptr + i) = *(s + start + i);
+		i++;
+		len--;
+	}
+	*(ptr + i) = '\0';
+	return (ptr);
 }
 
 char	*ft_strchr(const char *s, int c)
