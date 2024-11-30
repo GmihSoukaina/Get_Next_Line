@@ -6,7 +6,7 @@
 /*   By: sgmih <sgmih@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/27 08:51:33 by sgmih             #+#    #+#             */
-/*   Updated: 2024/11/29 14:47:26 by sgmih            ###   ########.fr       */
+/*   Updated: 2024/11/30 11:13:36 by sgmih            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,12 @@
 # define GET_NEXT_LINE_H
 
 # include <fcntl.h>
-# include <stdio.h>
 # include <unistd.h>
 # include <stdlib.h>
+# include <limits.h>
 
 # ifndef BUFFER_SIZE
-#  define BUFFER_SIZE 546
+#  define BUFFER_SIZE 1
 # endif
 
 char	*get_next_line(int fd);

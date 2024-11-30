@@ -6,7 +6,7 @@
 /*   By: sgmih <sgmih@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/26 16:55:52 by sgmih             #+#    #+#             */
-/*   Updated: 2024/11/29 16:06:31 by sgmih            ###   ########.fr       */
+/*   Updated: 2024/11/30 11:11:08 by sgmih            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,6 +58,8 @@ char	*ft_strdup(const char *s1)
 	int		len;
 	int		i;
 
+	if (!s1)
+		return (NULL);
 	len = ft_strlen(s1);
 	dest = (char *) malloc((len + 1) * sizeof(char));
 	if (!dest)
