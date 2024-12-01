@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.c                                    :+:      :+:    :+:   */
+/*   get_next_line_bonus.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sgmih <sgmih@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/26 16:55:48 by sgmih             #+#    #+#             */
-/*   Updated: 2024/12/01 11:13:11 by sgmih            ###   ########.fr       */
+/*   Created: 2024/12/01 10:57:55 by sgmih             #+#    #+#             */
+/*   Updated: 2024/12/01 11:15:21 by sgmih            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
+#include "get_next_line_bonus.h"
 
 static char	*find_newline(int fd, char *str)
 {
@@ -89,17 +89,17 @@ static char	*update_str(char *str)
 
 char	*get_next_line(int fd)
 {
-	static char	*str;
+	static char	*str[OPEN_MAX];
 	char		*line;
 
-	if (fd < 0 || BUFFER_SIZE <= 0 || BUFFER_SIZE > INT_MAX)
+	if (fd < 0 || fd >= OPEN_MAX || BUFFER_SIZE <= 0 || BUFFER_SIZE > INT_MAX)
 		return (NULL);
-	str = find_newline(fd, str);
-	if (str == NULL)
+	str[fd] = find_newline(fd, str[fd]);
+	if (str[fd] == NULL)
 		return (NULL);
-	line = substr_newline(str);
+	line = substr_newline(str[fd]);
 	if (!line || *line == 0)
-		return (free(str), str = NULL, NULL);
-	str = update_str(str);
+		return (free(str[fd]), str[fd] = NULL, NULL);
+	str[fd] = update_str(str[fd]);
 	return (line);
 }
