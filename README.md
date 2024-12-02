@@ -40,7 +40,6 @@ This project is a typical exercise in memory management and understanding I/O op
 
 - **get_next_line** : Retrieves the next line from the file.
 
-
 ## 🛠️ Helper Functions : 
 
 - **ft_strlen** : Returns the length of a string.
@@ -48,3 +47,19 @@ This project is a typical exercise in memory management and understanding I/O op
 - **ft_strdup** : Duplicates a string.
 - **ft_substr** : Extracts a substring from a given string.
 - **ft_strchr** : Finds the first occurrence of a character in a string.
+
+## 📋 Project Structure
+
+```
+get_next_line/
+├── includes/
+│   ├── get_next_line.h
+│   └── get_next_line_bonus.h
+├── srcs/
+│   ├── get_next_line.c
+│   ├── get_next_line_bonus.c
+│   ├── get_next_line_utils.c
+│   └── get_next_line_utils_bonus.c
+├── example.txt
+└── README.md
+```
