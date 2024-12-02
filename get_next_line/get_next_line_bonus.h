@@ -6,7 +6,7 @@
 /*   By: sgmih <sgmih@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/01 10:59:30 by sgmih             #+#    #+#             */
-/*   Updated: 2024/12/02 09:20:43 by sgmih            ###   ########.fr       */
+/*   Updated: 2024/12/02 19:03:11 by sgmih            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,5 @@ char	*ft_strjoin(char const *s1, char const *s2);
 char	*ft_strdup(char	*empty_str);
 char	*ft_substr(char const *s, unsigned int start, size_t len);
 char	*ft_strchr(const char *s, int c);
-char	*ft_strncpy(char *dst, const char *src, size_t len);
 
 #endif
