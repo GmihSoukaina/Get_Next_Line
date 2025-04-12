@@ -23,7 +23,7 @@ This project is a typical exercise in memory management and understanding I/O op
 
 - **Modular Design** : I learned how to break down complex problems into smaller, more manageable helper functions. This made the code more modular, reusable, and easier to understand.
 
-## 🌱 Personal Experience :
+## 🌱 Personal Experience : 
 
 - This project was my first deep dive into working with files and memory in C. I faced challenges with pointer manipulation and memory management, especially dealing with buffers and freeing memory.
   
